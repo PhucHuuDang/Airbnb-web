@@ -7,6 +7,7 @@ interface RegisterModalStore {
 }
 
 const useRegisterModal = create<RegisterModalStore>((set) => ({
+  // set and call user operation on register modal
   isOpen: false,
   onOpen: () => set({ isOpen: true }),
   onClose: () => set({ isOpen: false }),

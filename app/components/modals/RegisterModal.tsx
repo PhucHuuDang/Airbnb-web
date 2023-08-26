@@ -47,9 +47,11 @@ const RegisterModal = () => {
       });
   };
 
+  // the input body of form register
+
   const bodyContent = (
     <div className="flex flex-col gap-4">
-      <Heading title="Welcome to Airbnb" subtitle="Create an account!" />
+      <Heading title="Welcome to Airbnb" subtitle="Create an account!" center />
       <Input
         id="email"
         label="Email"
@@ -77,7 +79,7 @@ const RegisterModal = () => {
       />
     </div>
   );
-
+  // the footer body of form register
   const footerContent = (
     <div className="flex flex-col gap-4 mt-3">
       <hr />
@@ -102,7 +104,7 @@ const RegisterModal = () => {
       "
       >
         <div className="justify-center flex flex-row items-center gap-2">
-          <div>Already have account</div>
+          <div>Already have accounts</div>
           <div
             onClick={registerModal.onClose}
             className="text-neutral-500 cursor-pointer hover:underline"

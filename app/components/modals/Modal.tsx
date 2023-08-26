@@ -1,5 +1,5 @@
 "use client";
-import { useCallback, useEffect, useState } from "react";
+import { KeyboardEvent, useCallback, useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import Button from "../Button";
 
@@ -24,7 +24,7 @@ const Modal: React.FC<ModalProps> = ({
   body,
   footer,
   actionLabel,
-  disabled,
+  disabled, // it's passed from isLoading from RegisterModal
   secondaryAction,
   secondaryActionLabel,
 }) => {
@@ -43,6 +43,18 @@ const Modal: React.FC<ModalProps> = ({
       onClose();
     }, 300);
   }, [disabled, onClose]);
+
+  const handleCloseKeyEsc = useCallback(
+    (e: KeyboardEvent<HTMLButtonElement>) => {
+      if (disabled) {
+        return;
+      }
+      if (e.keyCode === 27) {
+        handleClose();
+      }
+    },
+    [disabled, handleClose]
+  );
 
   const handSubmit = useCallback(() => {
     if (disabled) {
@@ -82,6 +94,7 @@ const Modal: React.FC<ModalProps> = ({
         "
       >
         <div
+          onKeyUp={handleCloseKeyEsc}
           className="
             relative
             w-full
@@ -161,12 +174,13 @@ const Modal: React.FC<ModalProps> = ({
                   {secondaryAction && secondaryActionLabel && (
                     <Button
                       outline
-                      disabled={disabled}
+                      disabled={disabled} // it's passed from isLoading from RegisterModal
                       label={secondaryActionLabel}
                       onClick={handleSecondaryAction}
                     />
                   )}
                   <Button
+                    // it's passed from isLoading from RegisterModal
                     disabled={disabled}
                     label={actionLabel}
                     onClick={handSubmit}
