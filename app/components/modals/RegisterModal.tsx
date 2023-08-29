@@ -15,6 +15,8 @@ import Input from "../inputs/Input";
 import { toast } from "react-hot-toast";
 import Button from "../Button";
 
+import { signIn } from "next-auth/react";
+
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
   const [isLoading, setIsLoading] = useState(false);
@@ -40,7 +42,7 @@ const RegisterModal = () => {
         registerModal.onClose();
       })
       .catch((error) => {
-        toast.error("Something went wrong");
+        toast.error("Something went wrong!");
       })
       .finally(() => {
         setIsLoading(false);
@@ -93,7 +95,7 @@ const RegisterModal = () => {
         outline
         label="Continue with GitHub"
         icon={AiFillGithub}
-        onClick={() => {}}
+        onClick={() => signIn("github")}
       />
       <div
         className="
