@@ -36,9 +36,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
             py-3 
             px-4 
             rounded-full 
-            h>
-            {children}
-            </>;over:bg-neutral-100 
+            hover:bg-neutral-100 
             transition 
             cursor-pointer
           "
@@ -65,7 +63,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
         >
           <AiOutlineMenu />
           <div className="hidden md:block">
-            <Avatar />
+            <Avatar src={currentUser?.image} />
           </div>
         </div>
       </div>
