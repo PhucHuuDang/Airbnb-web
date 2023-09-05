@@ -20,8 +20,10 @@ import useLoginModal from "@/app/hooks/useLoginModal";
 
 const LoginModal = () => {
   const router = useRouter();
+
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
+
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -55,11 +57,17 @@ const LoginModal = () => {
     });
   };
 
+  const toggle = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal]);
+
   // the input body of form register
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading title="Welcome back" subtitle="Login to your account!" center />
+
       <Input
         id="email"
         label="Email"
@@ -68,14 +76,7 @@ const LoginModal = () => {
         errors={errors}
         required
       />
-      {/* <Input
-        id="name"
-        label="Name"
-        disabled={isLoading}
-        register={register}
-        errors={errors}
-        required
-      /> */}
+
       <Input
         id="password"
         label="Password"
@@ -112,12 +113,12 @@ const LoginModal = () => {
       "
       >
         <div className="justify-center flex flex-row items-center gap-2">
-          <div>Already have accounts</div>
+          <div>First time using Airbnb?</div>
           <div
-            onClick={registerModal.onClose}
+            onClick={toggle}
             className="text-neutral-500 cursor-pointer hover:underline"
           >
-            Login
+            Create an account
           </div>
         </div>
       </div>

@@ -51,9 +51,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
         skipNull: true,
       }
     );
-
     // console.log(url);
-
     // push it to router
     router.push(url);
   }, [label, params, router]);
