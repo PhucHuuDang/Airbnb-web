@@ -128,6 +128,7 @@ const LoginModal = () => {
   return (
     <Modal
       disabled={isLoading}
+      // get open = true when onClick in the UserMenu file
       isOpen={loginModal.isOpen}
       title="Login"
       actionLabel="Continue"

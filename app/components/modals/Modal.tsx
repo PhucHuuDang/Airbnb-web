@@ -171,6 +171,7 @@ const Modal: React.FC<ModalProps> = ({
               {/* THE FOOTER */}
               <div className="flex flex-col gap-2 p-6">
                 <div className="flex flex-row items-center gap-4 w-full">
+                  {/* RentModal button */}
                   {secondaryAction && secondaryActionLabel && (
                     <Button
                       outline
