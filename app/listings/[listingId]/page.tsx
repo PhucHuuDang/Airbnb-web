@@ -8,6 +8,7 @@ import getListingById from "@/app/actions/getListingById";
 import ClientOnly from "@/app/components/ClientOnly";
 import EmptyState from "@/app/components/EmptyState";
 import ListingClient from "./ListingClient";
+import getReservations from "@/app/actions/getReservations";
 
 // communication from server component to the database
 
@@ -16,7 +17,9 @@ interface IParams {
 }
 
 const ListingPage = async ({ params }: { params: IParams }) => {
+  // call action (server side) getListingId, getReservations, getCurrentUser
   const listing = await getListingById(params);
+  const reservations = await getReservations(params);
   const currentUser = await getCurrentUser();
 
   if (!listing) {
@@ -29,7 +32,11 @@ const ListingPage = async ({ params }: { params: IParams }) => {
 
   return (
     <ClientOnly>
-      <ListingClient listing={listing} currentUser={currentUser} />
+      <ListingClient
+        reservations={reservations}
+        listing={listing}
+        currentUser={currentUser}
+      />
     </ClientOnly>
   );
 };

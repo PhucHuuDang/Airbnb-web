@@ -68,6 +68,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
 
   return (
     <div
+      // redirect to file listings/[listingId]
       onClick={() => router.push(`/listings/${data.id}`)}
       className="
         col-span-1 cursor-pointer group
