@@ -41,7 +41,9 @@ const RegisterModal = () => {
     axios
       .post("api/register", data) // the data param will be put in to url and will add new data to on server, push data to route.js
       .then(() => {
+        toast.success("Success!");
         registerModal.onClose();
+        loginModal.onOpen();
       })
       .catch((error) => {
         toast.error("Something went wrong!");

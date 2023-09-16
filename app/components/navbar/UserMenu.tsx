@@ -13,7 +13,7 @@ import { SafeUser } from "@/app/types";
 import { useRouter } from "next/navigation";
 
 interface UserMenuProps {
-  currentUser: SafeUser | null;
+  currentUser?: SafeUser | null;
 }
 
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
@@ -102,8 +102,14 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                   label="My trips"
                   onClick={() => router.push("/trips")}
                 />
-                <MenuItem label="My favorites" onClick={() => {}} />
-                <MenuItem label="My reservation" onClick={() => {}} />
+                <MenuItem
+                  label="My favorites"
+                  onClick={() => router.push("/favorites")}
+                />
+                <MenuItem
+                  label="My reservations"
+                  onClick={() => router.push("/reservations")}
+                />
                 <MenuItem label="My properties" onClick={() => {}} />
                 <MenuItem label="Airbnb my home" onClick={rentModal.onOpen} />
                 <hr />
