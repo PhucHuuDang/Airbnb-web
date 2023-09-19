@@ -46,7 +46,7 @@ const Counter: React.FC<CounterProps> = ({
                 flex
                 items-center
                 justify-center
-                text-neutral-t600
+                text-neutral-600
                 cursor-pointer
                 hover:opacity-80
                 transition
@@ -66,7 +66,7 @@ const Counter: React.FC<CounterProps> = ({
                 flex
                 items-center
                 justify-center
-                text-neutral-t600
+                text-neutral-600
                 cursor-pointer
                 hover:opacity-80
                 transition

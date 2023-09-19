@@ -10,6 +10,7 @@ import getCurrentUser from "./actions/getCurrentUser";
 
 import ToasterProvider from "./providers/ToasterProvider";
 import RentModal from "./components/modals/RentModal";
+import SearchModal from "./components/modals/SearchModal";
 
 export const metadata: Metadata = {
   title: "Airbnb",
@@ -32,6 +33,7 @@ export default async function RootLayout({
       <body suppressHydrationWarning className={font.className}>
         <ClientOnly>
           <ToasterProvider />
+          <SearchModal />
           <RentModal />
           <LoginModal />
           <RegisterModal />

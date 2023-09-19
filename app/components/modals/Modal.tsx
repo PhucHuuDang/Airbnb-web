@@ -45,7 +45,7 @@ const Modal: React.FC<ModalProps> = ({
   }, [disabled, onClose]);
 
   const handleCloseKeyEsc = useCallback(
-    (e: KeyboardEvent<HTMLButtonElement>) => {
+    (e: KeyboardEvent<HTMLDivElement>) => {
       if (disabled) {
         return;
       }
