@@ -33,6 +33,8 @@ const ListingCard: React.FC<ListingCardProps> = ({
   const router = useRouter();
   const { getByValue } = useCountries();
 
+  const MAX_LENGTH = 54;
+
   const location = getByValue(data.locationValue);
 
   const handleCancel = useCallback(
@@ -99,7 +101,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
 
         <div className="font-light text-neutral-500">
           {/* {reservationDate || data.category} */}
-          {reservationDate || data.description}
+          {reservationDate || data.description.slice(0, MAX_LENGTH) + "..."}
         </div>
 
         <div className="flex flex-row items-center gap-1">

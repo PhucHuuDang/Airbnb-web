@@ -25,12 +25,12 @@ export default async function getListingById(params: IParams) {
 
     return {
       ...listing,
-      createdAt: listing.createdAt.toISOString(),
+      createdAt: listing.createdAt.toString(),
       user: {
         ...listing.user,
-        createAt: listing.user.createAt.toISOString(),
-        updateAt: listing.user.updateAt.toISOString(),
-        emailVerified: listing.user.emailVerified?.toISOString() || null,
+        createAt: listing.user.createAt.toString(),
+        updateAt: listing.user.updateAt.toString(),
+        emailVerified: listing.user.emailVerified?.toString() || null,
       },
     };
   } catch (error: any) {
